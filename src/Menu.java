@@ -14,8 +14,7 @@ public class Menu {
 		int in = 0;
 		int ex = 0;
 		String yes = "yes";
-		String no = "no";
-		
+		String no = "no";		
 		while(num != 6) {
 			System.out.println("1. My Income");
 			System.out.println("2. My Expenditure");
