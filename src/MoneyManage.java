@@ -55,7 +55,7 @@ public class MoneyManage {
 			money1.money[i] = input.nextInt();
 			System.out.print("Enter your expenditure name : ");
 			money1.name[i] = input.next();
-		}		
+			}		
 	}
 	
 	void view(int c, int d) {

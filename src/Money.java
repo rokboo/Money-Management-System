@@ -7,5 +7,5 @@ public class Money {
 	Money(int[] money, String[] name){
 		this.money = money;
 		this.name = name;
-	}
+		}
 }
