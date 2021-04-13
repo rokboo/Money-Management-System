@@ -35,9 +35,6 @@ public class MoneyManage {
 	}
 	
 	public void expend() {
-		if(income.contains(Loan.interest)) {
-			System.out.print("Did you pay loan? ");
-		}
 		System.out.print("Enter your expenditure : ");
 		int m = input.nextInt();
 		System.out.print("Enter your expenditure name : ");
