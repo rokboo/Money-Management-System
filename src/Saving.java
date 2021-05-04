@@ -1,4 +1,3 @@
-
 public class Saving extends Money{
 	private int saving_interest;
 	private int saving_month;
@@ -13,9 +12,6 @@ public class Saving extends Money{
 	}
 	public void setSaving_month(int saving_month) {
 		this.saving_month = saving_month;
-	}
-	public Saving() {
-		
 	}
 	public Saving(int money, String name, int saving_interest, int saving_month) {
 		this.setMoney(money);
