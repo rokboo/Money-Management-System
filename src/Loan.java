@@ -12,6 +12,6 @@ public class Loan extends Money {
 	}
 	public void Print() {
 		System.out.print(this.getName() + " : " + this.getMoney());
-		System.out.println(" ´ëÃâÀÌÀÚÀ² : " + this.getInterest() + " ´ëÃâ±â°£ : " + this.getMonth());
+		System.out.print("ëŒ€ì¶œì´ììœ¨ : " + this.getInterest() + " ëŒ€ì¶œê¸°ê°„ : " + this.getMonth());
 	}
 }

@@ -7,7 +7,7 @@ public class Saving extends Money{
 	}
 	public void Print() {
 		System.out.print(this.getName() + " : " + this.getMoney());
-		System.out.println(" Àû±İÀÌÀÚÀ² : " + this.getInterest() + " Àû±İ±â°£ : " + this.getMonth());;
+		System.out.print("ì ê¸ˆì´ììœ¨ : " + this.getInterest() + " ì ê¸ˆê¸°ê°„ : " + this.getMonth());;
 		}
 	public int calinterest() {
 		int income = 0;

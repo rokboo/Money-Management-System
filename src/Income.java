@@ -5,10 +5,9 @@ public class Income extends Money{
 		this.setName(name);
 	}
 	public void Print() {
-		System.out.print("¼öÀÔ " + this.getName() + " : " + this.getMoney());
+		System.out.print("ìˆ˜ìž… " + this.getName() + " : " + this.getMoney());
 	}
 	public int calinterest() {
 		return 0;
 	}
-
 }

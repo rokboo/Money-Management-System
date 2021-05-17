@@ -30,4 +30,4 @@ abstract public class Money implements getinformation{
 	public Money() {}
 		public abstract void Print();
 		public abstract int calinterest();
-	}
+}

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MoneyManage {
@@ -6,69 +7,83 @@ public class MoneyManage {
 	ArrayList<Loan> Loan = new ArrayList<Loan>();
 	ArrayList<Expend> expend = new ArrayList<Expend>();
 	ArrayList<Saving> Saving = new ArrayList<Saving>();
-	Scanner input;
+	Scanner input = new Scanner(System.in);
 	MoneyManage(Scanner input){
 		this.input = input;
 	}
 	
-	public void income() {
-		System.out.print("´ëÃâÀ» ¹Ş¾Ò½À´Ï±î?");
-		String ans = input.next();
-		if(ans.equals("³×")) {
-			System.out.print("´ëÃâ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
+	public void income(){
+		input = new Scanner(System.in);
+		try {
+			System.out.print("ìˆ˜ì…ê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
 			int m = input.nextInt();
-			String n = "´ëÃâ";
-			System.out.print("´ëÃâÀÌÀÚÀ²¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			double i = input.nextDouble();
-			System.out.println("´ëÃâ±â°£ÀÌ ¾ó¸¶³ª µÇ¾ú½À´Ï±î?");
-			int month = input.nextInt();
-			Loan loan = new Loan(m,n,i,month);
-			Expend debt = new Expend(loan.calinterest(),"´ëÃâÀÌÀÚ");
-			Loan.add(loan);
-			expend.add(debt);
-		}
-		else if(ans.equals("¾Æ´Ï¿ä")) {
-			System.out.print("¼öÀÔ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			int m = input.nextInt();
-			System.out.print("¼öÀÔ¿øÀ» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
+			System.out.print("ìˆ˜ì…ë‚´ìš©ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
 			String n = input.next();
 			Income money = new Income(m,n);
-			income.add(money);			
-		}
-		else {
-			System.err.print("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+			income.add(money);	
+		}catch(InputMismatchException e) {
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
+			input = new Scanner(System.in);
 		}
 	}	
-	public void expend() {		
-		System.out.print("Àû±İÀ» µé¾ú½À´Ï±î?");
-		String ans = input.next();
-		if(ans.equals("³×")) {
-			System.out.print("Àû±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
+	
+	public void expend(){	
+		input = new Scanner(System.in);
+		try {
+			System.out.print("ì§€ì¶œê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
 			int m = input.nextInt();
-			String n = "Àû±İ";
-			System.out.print("Àû±İÀÌÀÚÀ²¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			double i = input.nextDouble();
-			System.out.println("Àû±İ±â°£ÀÌ ¾ó¸¶³ª µÇ¾ú½À´Ï±î?");
-			int month = input.nextInt();
-			Saving saving = new Saving(m*month,n,i,month);
-			Income interest =new Income(saving.calinterest(),"Àû±İÀÌÀÚ");
-			Saving.add(saving);
-			income.add(interest);
-		}
-		else if(ans.equals("¾Æ´Ï¿ä")) {
-			System.out.print("ÁöÃâ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			int m = input.nextInt();
-			System.out.print("ÁöÃâ¿øÀ» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
+			System.out.print("ì§€ì¶œë‚´ìš©ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
 			String n = input.next();
 			Expend money = new Expend(m,n);
-			expend.add(money);
-		}
-		else {
-			System.err.print("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù");
+			expend.add(money);	
+		}catch(InputMismatchException e) {
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
+			input = new Scanner(System.in);
 		}
 	}
 	
-	public void edit() {
+	public void Loan(){
+		input = new Scanner(System.in);
+		try {
+			System.out.print("ëŒ€ì¶œê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+			int m = input.nextInt();
+			String n = "ëŒ€ì¶œ";
+			System.out.print("ëŒ€ì¶œì´ììœ¨ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+			double i = input.nextDouble();
+			System.out.println("ëŒ€ì¶œê¸°ê°„ì´ ì–¼ë§ˆì…ë‹ˆê¹Œ?");
+			int month = input.nextInt();
+			Loan loan = new Loan(m,n,i,month);
+			Expend debt = new Expend(loan.calinterest(),"ëŒ€ì¶œì´ì");
+			Loan.add(loan);
+			expend.add(debt);
+		}catch(InputMismatchException e) {
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
+			input = new Scanner(System.in);
+		}
+	}
+	
+	public void Saving(){
+		input = new Scanner(System.in);
+		try {
+			System.out.print("ë§¤ì›” ì ê¸ˆê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+			int m = input.nextInt();
+			String n = "ì ê¸ˆ";
+			System.out.print("ì ê¸ˆì´ììœ¨ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+			double i = input.nextDouble();
+			System.out.println("ì ê¸ˆê¸°ê°„ì´ ì–¼ë§ˆì…ë‹ˆê¹Œ?");
+			int month = input.nextInt();
+			Saving saving = new Saving(m*month,n,i,month);
+			Income interest =new Income(saving.calinterest(),"ì ê¸ˆì´ì");
+			Saving.add(saving);
+			income.add(interest);
+		}catch(InputMismatchException e) {
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
+			input = new Scanner(System.in);
+		}
+	}
+	
+	public void edit(){
+		input = new Scanner(System.in);
 		for(int i = 0 ; i < income.size() ; i++) {
 			income.get(i).Print();
 		}
@@ -83,117 +98,111 @@ public class MoneyManage {
 		System.out.println();
 		for(int i =0 ; i < Saving.size() ; i++) {
 			Saving.get(i).Print();
-		}		
-		System.out.println("¼öÁ¤ÇÏ°í½ÍÀº ¸ñ·ÏÀ» ÀÔ·ÂÇÏ½Ê½Ã¿À(¼öÀÔ,´ëÃâ,ÁöÃâ,Àû±İ Áß ÇÏ³ª¸¦ ÀÔ·Â)");
+		}
+		System.out.println("ìˆ˜ì •í•˜ê³  ì‹¶ì€ ëª©ë¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤(ìˆ˜ì…,ëŒ€ì¶œ,ì§€ì¶œ,ì ê¸ˆ ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥)");
 		String ans = input.next();
-		System.out.println("¸î¹øÂ° Ç×¸ñÀ» ¼öÁ¤ÇÒÁö ÀÔ·ÂÇÏ½Ê½Ã¿À");
+		System.out.println("ëª‡ë²ˆì§¸ í•­ëª©ì„ ìˆ˜ì •í• ì§€ ì…ë ¥í•˜ì‹­ì‹œì˜¤");
 		int i = input.nextInt() - 1;
-		if(ans.equals("¼öÀÔ")) {
-			if((income.get(i).getName().equals("Àû±İÀÌÀÚ"))){
-				System.out.println("Àû±İÀÌÀÚ¸¦ ¼öÁ¤ÇÏ·Á¸é Àû±İ±İ¾×À» ¼öÁ¤ÇØÁÖ½Ê½Ã¿À");
+		try {
+			if(ans.equals("ìˆ˜ì…")) {
+				if((income.get(i).getName().equals("ì ê¸ˆì´ì"))){
+					System.out.println("ì ê¸ˆì´ìë¥¼ ìˆ˜ì •í•˜ë ¤ë©´ ì ê¸ˆì„ ìˆ˜ì •í•˜ì‹­ì‹œì˜¤");
+				}
+				else {
+					System.out.print("ìˆ˜ì •í•  ìˆ˜ì…ê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+					int money = input.nextInt();
+					income.get(i).setMoney(money);
+					System.out.print("ìˆ˜ì •í•  ìˆ˜ì…ë‚´ìš©ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+					String name = input.next();
+					income.get(i).setName(name);
+				}
 			}
-			else {
-				System.out.print("¼öÁ¤ÇÒ ¼öÀÔ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
+			else if(ans.equals("ëŒ€ì¶œ")) {
+				int k = 0;
+				System.out.print("ìˆ˜ì •í•  ëŒ€ì¶œê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
 				int money = input.nextInt();
 				income.get(i).setMoney(money);
-				System.out.print("¼öÁ¤ÇÒ ¼öÀÔ¿øÀ» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-				String name = input.next();
-				income.get(i).setName(name);
+				System.out.print("ìˆ˜ì •í•  ëŒ€ì¶œì´ììœ¨ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+				double interest = input.nextDouble();
+				System.out.println("ìˆ˜ì •í•  ëŒ€ì¶œê¸°ê°„ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤");
+				int month = input.nextInt();
+				Loan.get(i).setMoney(money);
+				Loan.get(i).setInterest(interest);
+				Loan.get(i).setMonth(month);
+				for(int j = 0 ; j < expend.size() ; j++) {
+					if(expend.get(j).getName().equals("ëŒ€ì¶œì´ì")) k++;
+					if(k==i) {
+						expend.get(j).setMoney(Loan.get(i).calinterest());
+						break;
+					}
+				}			
 			}
-		}
-		else if(ans.equals("´ëÃâ")) {
-			System.out.print("¼öÁ¤ÇÒ ´ëÃâ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			int money = input.nextInt();
-			income.get(i).setMoney(money);
-			System.out.print("¼öÁ¤ÇÒ ´ëÃâÀÌÀÚÀ²¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			double interest = input.nextDouble();
-			System.out.println("¼öÁ¤ÇÒ ´ëÃâ±â°£À» ÀÔ·ÂÇÏ½Ê½Ã¿À");
-			int month = input.nextInt();
-			Loan.get(i).setMoney(money);
-			Loan.get(i).setInterest(interest);
-			Loan.get(i).setMonth(month);
-			for(int j = 0 ; j < expend.size() ; j++) {
-				if(expend.get(j).getName().equals("´ëÃâÀÌÀÚ")) {
-					expend.get(j).setMoney(Loan.get(i).calinterest());
+			else if(ans.equals("ì§€ì¶œ")) {
+				if((expend.get(i).getName().equals("ëŒ€ì¶œì´ì"))) {
+					System.out.println("ëŒ€ì¶œì´ìë¥¼ ìˆ˜ì •í•˜ë ¤ë©´ ëŒ€ì¶œì„ ìˆ˜ì •í•˜ì‹­ì‹œì˜¤");
 				}
-			}
-			
-		}
-		else if(ans.equals("ÁöÃâ")) {
-			if((expend.get(i).getName().equals("´ëÃâÀÌÀÚ"))) {
-				System.out.println("´ëÃâÀÌÀÚ¸¦ ¼öÁ¤ÇÏ·Á¸é ´ëÃâ±İ¾×À» ¼öÁ¤ÇØÁÖ½Ê½Ã¿À");
-			}
-			else{
-				System.out.print("¼öÁ¤ÇÒ ÁöÃâ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
+				else{
+					System.out.print("ìˆ˜ì •í•  ì§€ì¶œê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+					int money = input.nextInt();
+					expend.get(i).setMoney(money);
+					System.out.print("ìˆ˜ì •í•  ì§€ì¶œë‚´ìš©ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+					String name = input.next();
+					expend.get(i).setName(name);
+				}
+			}	
+			else if(ans.equals("ì ê¸ˆ")) {
+				int k = 0;
+				System.out.print("ìˆ˜ì •í•  ë§¤ì›” ì ê¸ˆê¸ˆì•¡ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
 				int money = input.nextInt();
-				expend.get(i).setMoney(money);
-				System.out.print("¼öÁ¤ÇÒ ÁöÃâ¿øÀ» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-				String name = input.next();
-				expend.get(i).setName(name);
-			}
-		}	
-		else if(ans.equals("Àû±İ")) {
-			System.out.print("¼öÁ¤ÇÒ Àû±İ±İ¾×À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			int money = input.nextInt();
-			income.get(i).setMoney(money);
-			System.out.print("¼öÁ¤ÇÒ Àû±İÀÌÀÚÀ²À» ÀÔ·ÂÇÏ½Ê½Ã¿À : ");
-			double interest = input.nextDouble();
-			System.out.println("¼öÁ¤ÇÒ Àû±İ±â°£À» ÀÔ·ÂÇÏ½Ê½Ã¿À");
-			int month = input.nextInt();
-			Saving.get(i).setMoney(money*month);
-			Saving.get(i).setInterest(interest);
-			Saving.get(i).setMonth(month);
-			for(int j = 0 ; j < income.size() ; j++) {
-				if(income.get(j).getName().equals("Àû±İÀÌÀÚ")) {
-					income.get(j).setMoney(Saving.get(i).calinterest());
+				income.get(i).setMoney(money);
+				System.out.print("ìˆ˜ì •í•  ì ê¸ˆì´ììœ¨ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤ : ");
+				double interest = input.nextDouble();
+				System.out.println("ìˆ˜ì •í•  ì ê¸ˆê¸°ê°„ì„ ì…ë ¥í•˜ì‹­ì‹œì˜¤");
+				int month = input.nextInt();
+				Saving.get(i).setMoney(money*month);
+				Saving.get(i).setInterest(interest);
+				Saving.get(i).setMonth(month);
+				for(int j = 0 ; j < income.size() ; j++) {
+					if(income.get(j).getName().equals("ì ê¸ˆì´ì")) k++;
+					if(k==i) {
+						income.get(j).setMoney(Saving.get(i).calinterest());	
+						break;
+					}
 				}
 			}
+		}catch(IndexOutOfBoundsException e) {
+			System.out.println("ìˆ˜ì •í•  ë‚´ìš©ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+		}catch(InputMismatchException e) {
+			System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
+			input = new Scanner(System.in);
 		}
 	}
 	
 	public void view() {
-		System.out.print("¾î¶² ¸ñ·ÏÀ» È®ÀÎÇÏ½Ã°Ú½À´Ï±î?(¼öÀÔ,´ëÃâ,ÁöÃâ,Àû±İ,¸ğµÎ Áß ÇÏ³ª¸¦ ÀÔ·Â)");
-		String v = input.next();
-		if(v.equals("¼öÀÔ")) {
-			for(int i =0 ; i < income.size() ; i++) {
-				income.get(i).Print();
-			}
-			System.out.println();
+		int sum=0;
+		for(int i = 0 ; i < income.size() ; i++) {
+			income.get(i).Print();
+			sum=sum+income.get(i).getMoney();
 		}
-		else if(v.equals("´ëÃâ")) {
-			for(int i =0 ; i < Loan.size() ; i++) {
-				Loan.get(i).Print();
-			}
+		System.out.println();
+		for(int i =0 ; i < Loan.size() ; i++) {
+			Loan.get(i).Print();
+			sum=sum+Loan.get(i).getMoney();
 		}
-		else if(v.equals("ÁöÃâ")) {
-			for(int i =0 ; i < expend.size() ; i++) {
-				expend.get(i).Print();
-			}
-			System.out.println();
+		System.out.println();
+		for(int i = 0 ; i < expend.size() ; i++) {
+			expend.get(i).Print();
+			sum=sum-expend.get(i).getMoney();
 		}
-		else if(v.equals("Àû±İ")){
-			for(int i =0 ; i < Saving.size() ; i++) {
-				Saving.get(i).Print();
-			}	
+		System.out.println();
+		for(int i =0 ; i < Saving.size() ; i++) {
+			Saving.get(i).Print();
+			sum=sum+Saving.get(i).getMoney();
 		}
-		else if(v.equals("¸ğµÎ")) {
-			for(int i = 0 ; i < income.size() ; i++) {
-				income.get(i).Print();
-			}
-			System.out.println();
-			for(int i =0 ; i < Loan.size() ; i++) {
-				Loan.get(i).Print();
-			}
-			for(int i = 0 ; i < expend.size() ; i++) {
-				expend.get(i).Print();
-			}
-			System.out.println();
-			for(int i =0 ; i < Saving.size() ; i++) {
-				Saving.get(i).Print();
-			}	
-		}
+		System.out.println();
+		System.out.println("ì¬ì‚°ì€ " + sum + "ì…ë‹ˆë‹¤.");
 	}		
 	public void Exit() {
-		System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù");
+		System.out.println("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 	}
 }

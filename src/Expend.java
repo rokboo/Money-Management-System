@@ -5,11 +5,9 @@ public class Expend extends Money {
 		this.setName(name);
 	}
 	public void Print() {
-		System.out.print("ÁöÃâ " + this.getName() + " : " + this.getMoney());
+		System.out.print("ì§€ì¶œ " + this.getName() + " : " + this.getMoney());
 	}
 	public int calinterest() {
 		return 0;
 	}
-
-
 }
