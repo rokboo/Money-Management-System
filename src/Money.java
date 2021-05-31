@@ -1,8 +1,21 @@
-abstract public class Money implements getinformation{
+import java.io.Serializable;
+
+abstract public class Money implements getinformation, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -679383200885784198L;
 	private int money;
 	private String name;
 	private double interest;	
 	private int month;
+	private String str = null;
+	public String getStr() {
+		return str;
+	}
+	public void setStr(String str) {
+		this.str = str;
+	}
 	public int getMoney() {
 		return money;
 	}
