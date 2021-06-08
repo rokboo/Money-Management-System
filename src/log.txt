@@ -22,3 +22,25 @@ INFO: Exit program
 INFO: View money list
 5월 24, 2021 6:03:38 오후 logging Writelog
 INFO: Exit program
+6월 08, 2021 4:01:02 오후 Menu.logging Writelog
+INFO: Add money list
+6월 08, 2021 4:01:06 오후 Menu.logging Writelog
+INFO: Exit program
+6월 08, 2021 4:01:15 오후 Menu.logging Writelog
+INFO: View money list
+6월 08, 2021 4:01:19 오후 Menu.logging Writelog
+INFO: Exit program
+6월 08, 2021 4:13:53 오후 Menu.logging Writelog
+INFO: Add money list
+6월 08, 2021 4:14:07 오후 Menu.logging Writelog
+INFO: Add money list
+6월 08, 2021 4:14:17 오후 Menu.logging Writelog
+INFO: Add money list
+6월 08, 2021 4:15:16 오후 Menu.logging Writelog
+INFO: View money list
+6월 08, 2021 4:15:31 오후 Menu.logging Writelog
+INFO: Add money list
+6월 08, 2021 4:15:37 오후 Menu.logging Writelog
+INFO: View money list
+6월 08, 2021 4:15:41 오후 Menu.logging Writelog
+INFO: Exit program
